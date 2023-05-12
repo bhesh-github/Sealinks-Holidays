@@ -4,7 +4,7 @@ import Header from "./components/main/headers/Header";
 import Home from "./components/pages/home/Home";
 import AboutUs from "./components/pages/AboutUs";
 import InboundPackages from "./components/pages/InboundPackages";
-import OurboundPackages from "./components/pages/OutboundPackages";
+// import OurboundPackages from "./components/pages/OutboundPackages";
 import TravelInfo from "./components/pages/TravelInfo";
 import OurGallery from "./components/pages/OurGallery";
 import FAQ from "./components/pages/FAQ";

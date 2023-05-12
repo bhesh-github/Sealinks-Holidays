@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BiSearchAlt2, BiCartAdd } from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
-import Slider from "./images/sealinks_logo.png";
+// import Slider from "./images/sealinks_logo.png";
 const Navbar = () => {
   return (
     <nav className="header-navbar">
@@ -31,33 +30,10 @@ const Navbar = () => {
             Outbound Packages
           </NavLink>
         </li>
-        {/* <li>
-          <NavLink to="/travelInfo" className="nav-link">
-            TRAVEL INFO
-          </NavLink>
-        </li> */}
-
-        {/* <li>
-          <NavLink to="/faq" className="nav-link">
-            FAQ
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/blog" className="nav-link">
-            BLOG
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact" className="nav-link">
-            CONTACT
-          </NavLink>
-        </li> */}
       </ul>
       <div className="nav-icons">
-        <BiSearchAlt2 className="icon" />
-        <BiCartAdd className="icon" />
-        <FaUserCircle className="icon" />
-        <GiHamburgerMenu className="hamburger-bar icon" />
+        <BiSearchAlt2 className="icons " />
+        <FaUserCircle className="icons" />
       </div>
     </nav>
   );

@@ -4,7 +4,7 @@ const TopOutboundTourCard = ({ tour }) => {
   const { imgUrl, placeName } = tour;
   return (
      <div className="top-outbound-tour-card" >
-      <img className="top-outbound-tour-card-img" src={imgUrl} />
+      <img className="top-outbound-tour-card-img" src={imgUrl} alt="outbound-img" />
       <p className="top-outbound-tour-card-place-name">{placeName}</p>
     </div>
   );

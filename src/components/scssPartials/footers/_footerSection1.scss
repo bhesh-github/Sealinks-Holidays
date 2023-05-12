@@ -55,8 +55,8 @@
   }
   @media screen and (max-width: 800px) {
     .footer-section-1-list-columns {
-      width: 60%;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      width: 95%;
       .list-column {
         padding-left: 2em;
       }

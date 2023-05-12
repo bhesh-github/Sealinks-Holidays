@@ -7,7 +7,9 @@ import { FaTripadvisor } from "react-icons/fa";
 const FooterSection2 = () => {
   return (
     <div className="footer-section-2">
-      <h2 className="company-logo">Sealinks Holidays</h2>
+      <h2 className="company-logo">
+        Sealinks <span className="holidays">Holidays</span>
+      </h2>
       <div className="section-nav">
         <NavLink className="nav-item">About Us</NavLink>
         <hr className="nav-hr-line" />
