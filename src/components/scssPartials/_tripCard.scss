@@ -1,0 +1,127 @@
+// ---TripCard Comp---
+// .trip-card-wrapper {
+// width: 90%;
+// display: flex;
+// flex-wrap: wrap;
+// gap: 1em;
+.trip-card {
+  // border: 1px solid rgb(212, 212, 212);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 27rem;
+  border-radius: 5px;
+  .trip-card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 60%;
+    .trip-card-img {
+      position: absolute;
+      transition: transform 0.5s;
+      width: 100%;
+      height: 100%;
+    }
+    .small-heart-icon {
+      position: absolute;
+      z-index: 1;
+      top: 7%;
+      left: 86%;
+      color: white;
+      width: 30px;
+      height: 30px;
+    }
+    .heart-icon {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 25px);
+      left: calc(50% - 25px);
+      color: white;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .trip-card-intro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 12px;
+    font-weight: 600;
+    height: 40%;
+    .trip-card-category {
+      color: grey;
+    }
+    .trip-card-title {
+      color: #20558a;
+      font-size: 1.1rem;
+      font-weight: bold;
+      line-height: 19px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+    .trip-card-total-days {
+      font-size: 13.5px;
+    }
+    .trip-card-btn {
+      border: none;
+      margin: 5px 0;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 15px;
+      background-color: #20558a;
+      color: white;
+    }
+    .trip-card-btn:hover {
+      background-color: #f79621;
+    }
+    .trip-card-price {
+      font-style: italic;
+    }
+    .per-person {
+      font-size: 1.9vh;
+    }
+  }
+  h1 {
+    color: red;
+  }
+}
+// }
+.trip-card:hover {
+  .trip-card-img {
+    transform: scale(1.2);
+  }
+  .heart-icon {
+    display: block;
+  }
+  .small-heart-icon {
+    display: none;
+  }
+}
+
+// ---StarsRating Component---
+.star-rating-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 13.5px;
+  display: flex;
+  .stars-rating {
+    .star-icon {
+      width: 17px;
+      height: 17px;
+      color: #fdcc0d;
+    }
+  }
+  .total-stars {
+    margin: 0 5px;
+  }
+  .total-reviews {
+    color: grey;
+  }
+}

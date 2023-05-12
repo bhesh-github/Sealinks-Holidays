@@ -1,0 +1,126 @@
+@import "./slider";
+@import "../scssPartials/tripCard";
+@import "./topOutboundTourCard";
+@import "./testimonial";
+@import "./testimonial2";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  .home-main-slider {
+    width: 100%;
+    height: 75vh;
+    background-image: url("https://images.pexels.com/photos/1329510/pexels-photo-1329510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -1;
+    .home-main-banner-overlay {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.173);
+    }
+  }
+  .long-searchbar-wrapper {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 19.25%);
+    width: 38.5%;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 1em 0 2em;
+    border: none;
+    overflow: hidden;
+    .long-searchbar-input {
+      width: 100%;
+      height: 100%;
+      padding: 5px 20px 5px 42px;
+      font-size: 20px;
+      border: 1px solid rgb(223, 219, 219);
+      border-radius: 10px;
+      outline: none;
+    }
+    .search-icon {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      width: 1.3em;
+      height: 1.3em;
+      cursor: pointer;
+      color: grey;
+    }
+  }
+  .long-searchbar-label {
+    width: calc(50% - 14%);
+    position: absolute;
+    top: 45%;
+    text-shadow: 0 0 4px rgb(0, 0, 0);
+    font-size: 1.7em;
+    left: calc(50% - 7.1em);
+    font-weight: 600;
+    color: #fff;
+  }
+  .section-2 {
+    width: 90%;
+    align-self: center;
+    .featured-trip-cards-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      margin-bottom: 2em;
+      .featured-trip-cards-heading {
+        font-weight: 600;
+        font-size: 1.4em;
+        margin-bottom: 1rem;
+      }
+
+      .featured-trip-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2rem 1.5rem;
+      }
+      @media screen and (max-width: 1150px) {
+        .featured-trip-cards {
+          grid-template-columns: 1fr 1fr;
+          margin: 0 4em;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .featured-trip-cards {
+          margin: 0 2em;
+        }
+      }
+      @media screen and (max-width: 650px) {
+        .featured-trip-cards {
+          grid-template-columns: 1fr;
+          margin: 0 3em;
+        }
+      }
+    }
+    .seasonal-offer-heading {
+      font-weight: 600;
+      font-size: 1.4em;
+      margin-bottom: 1rem;
+    }
+    .top-outbound-tour-cards-wrapper {
+      margin-bottom: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0 5px;
+      .top-outbound-tours-cards-heading {
+        font-weight: 600;
+        font-size: 1.4em;
+        margin-bottom: 1rem;
+      }
+      .top-outbound-tour-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  }
+}

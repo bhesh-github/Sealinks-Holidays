@@ -1,0 +1,7 @@
+@import "./footerSection1";
+@import "./footerSection2";
+
+.footers {
+  display: flex;
+  flex-direction: column;
+}

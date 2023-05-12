@@ -1,0 +1,36 @@
+.testimonial-2 {
+  display: flex;
+
+  width: 100%;
+  margin-bottom: 2em;
+  .testimonial-media {
+    height: 600px;
+    background-image: url("https://images.pexels.com/photos/2413238/pexels-photo-2413238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: green;
+    width: 40%;
+    // height: 100%;
+  }
+  .testimonial-message {
+    height: 100%;
+    height: 600px;
+    width: 60%;
+    background-color: #e7e6e6;
+  }
+}
+@media screen and (max-width: 900px) {
+  .testimonial-2 {
+    flex-direction: column;
+    align-items: center;
+    .testimonial-media {
+      height: 700px;
+      width: 70%;
+      flex-grow: 1;
+    }
+    .testimonial-message {
+      flex-grow: 1;
+      width: 70%;
+    }
+  }
+}
