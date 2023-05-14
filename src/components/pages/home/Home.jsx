@@ -74,7 +74,7 @@ const Home = ({ trips, outboundTours }) => {
             Top Outbound Places For Visit
           </span>
           <div className="top-outbound-tour-cards">{outboundTourCard}</div>
-          <LoadmoreBtn />
+          <LoadmoreBtn className="loadmore-btn" />
         </div>
       </div>
       {/* <div className="special-tours-package">
