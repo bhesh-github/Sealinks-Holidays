@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function SelectParticipantsActionBtn({ text, btnColor, toggleOverlay }) {
-  const [overlay, setOverlay] = useState(true);
+  const [overlay, setOverlay] = useState(false);
 
   return (
     <>
