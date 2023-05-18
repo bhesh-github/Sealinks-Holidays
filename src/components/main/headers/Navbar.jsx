@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 // import Slider from "./images/sealinks_logo.png";
-const Navbar = () => {
+const Navbar = ({ isNavMenu }) => {
   return (
     <nav className="header-navbar">
       <NavLink to="/" className="main-logo">
@@ -14,27 +14,29 @@ const Navbar = () => {
           className="main-logo-img"
         />
       </NavLink>
-      <ul className="nav-menu">
-        <li>
-          <NavLink to="/ourGallery" className="nav-link gallery">
-            Our Gallery
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/inboundPackages" className="nav-link inbound">
-            Inbound Packages
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/outboundPackages" className="nav-link outbound">
-            Outbound Packages
-          </NavLink>
-        </li>
-      </ul>
       <div className="nav-icons">
         <BiSearchAlt2 className="icons " />
         <FaUserCircle className="icons" />
       </div>
+      {isNavMenu && (
+        <ul className="navigation-menu">
+          <li>
+            <NavLink to="/ourGallery" className="nav-link gallery">
+              Our Gallery
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/inboundPackages" className="nav-link inbound">
+              Inbound Packages
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/outboundPackages" className="nav-link outbound">
+              Outbound Packages
+            </NavLink>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 };

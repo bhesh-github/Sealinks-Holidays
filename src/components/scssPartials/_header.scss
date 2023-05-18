@@ -5,6 +5,8 @@
   width: 100%;
   height: auto;
   background-color: #20558a;
+  position: absolute;
+  z-index: 1;
   .header-contacts-info-social-icons-wrapper {
     margin: 0.5em 0;
     font-size: 12px;
@@ -69,6 +71,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
+  margin-top: 1.7em;
   align-self: center;
   width: 84.3%;
   left: calc(50% - 42.15%);
@@ -98,7 +101,7 @@
       width: 7em;
     }
   }
-  .nav-menu {
+  .navigation-menu {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -154,13 +157,13 @@
     }
   }
   @media screen and (max-width: 1440px) {
-    .nav-menu {
+    .navigation-menu {
       top: 125%;
       height: 9em;
     }
   }
   @media screen and (max-width: 750px) {
-    .nav-menu {
+    .navigation-menu {
       top: 210%;
       flex-direction: column;
       align-items: center;
@@ -191,7 +194,7 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .nav-menu {
+  .navigation-menu {
     .nav-link {
       // display: none;
     }

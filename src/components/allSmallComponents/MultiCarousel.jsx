@@ -5,7 +5,7 @@ const responsive = {
   // the naming can be any, depends on you.
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 1190 },
-    items: 5.3,
+    items: 4,
     slidesToSlide: 2,
   },
   desktop: {
@@ -44,5 +44,4 @@ const MultiCarousel = ({ topInboundTours }) => {
     </div>
   );
 };
-
 export default MultiCarousel;

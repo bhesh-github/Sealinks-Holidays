@@ -3,9 +3,8 @@ import { GrFacebook } from "react-icons/gr";
 import { BsInstagram } from "react-icons/bs";
 import { SiTripadvisor } from "react-icons/si";
 
-const Header = () => {
+const Header = ({isNavMenu}) => {
   return (
-    // <div className="header">
     <>
       <div className="header-top-nav">
         <div className="header-contacts-info-social-icons-wrapper">
@@ -24,10 +23,9 @@ const Header = () => {
         </div>
       </div>
       <div className="header-nav-wrapper">
-        <Navbar />
+        <Navbar isNavMenu={isNavMenu} />
       </div>
     </>
-    // </div>
   );
 };
 

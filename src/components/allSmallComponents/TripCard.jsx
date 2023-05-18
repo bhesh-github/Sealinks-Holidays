@@ -3,7 +3,7 @@ import { ImHeart } from "react-icons/im";
 import { useState } from "react";
 import StarsRating from "./StarsRating";
 const TripCard = ({ trip }) => {
-  const { image, category, title, totalDays, rating, totalReviews, price } =
+  const { image, category, title, days, rating, totalReviews, price } =
     trip;
   const [isHeartIconClicked, setIsHeartIconClicked] = useState(false);
   const handleHeartIconClick = () => {
@@ -29,14 +29,14 @@ const TripCard = ({ trip }) => {
         />
       </div>
       <div className="trip-card-intro">
-        <p className="trip-card-category">{category}</p>
-        <p className="trip-card-title">{title}</p>
-        <p className="trip-card-total-days">{totalDays} days</p>
-        <button className="trip-card-btn">Book Now</button>
+        <span className="trip-card-category">{category}</span>
+        <span className="trip-card-title">{title}</span>
+        <span className="total-days">{days} days</span>
+        <button className="trip-card-button">Book Now</button>
         <StarsRating rating={rating} totalReviews={totalReviews} />
-        <p className="trip-card-price">
+        <span className="trip-card-price">
           From Rs.{price} <span className="per-person">per person</span>
-        </p>
+        </span>
       </div>
     </div>
   );
