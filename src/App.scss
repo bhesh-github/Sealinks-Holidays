@@ -4,7 +4,14 @@
   margin: 0;
 }
 
+$primaryBlue: #20558a;
+$primaryYellow: #f79621;
+$primaryGrey: #d4d4d4;
+$allHeadingFontWeight: 600;
+$allHeadingFontSize: 1.4em;
+
 @import "./components/scssPartials/header";
 @import "./components/scssPartials/home";
 @import "./components/scssPartials/footers/footers";
 @import "./components/scssPartials/loadmore-btn";
+@import "./components/scssPartials/singleProductPage/singleProductPage";

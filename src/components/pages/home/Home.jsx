@@ -1,17 +1,14 @@
 import React from "react";
-import TripCard from "../../TripCard";
-// import Slider from "../../Slider";
-import TopOutboundCountriesCard from "./TopOutboundTourCard";
-import Footers from "../../main/footers/Footers";
-// import Testimonial from "../../Testimonial";
-import Testimonial2 from "../../Testimonial2";
-// import { BiSearchAlt2 } from "react-icons/bi";
-import { TfiLocationPin } from "react-icons/tfi";
 import { useState } from "react";
-import LoadmoreBtn from "../../LoadmoreBtn";
+
+import Header from "../../main/headers/Header";
+import TripCard from "../../allSmallComponents/TripCard";
+import TopOutboundCountriesCard from "./TopOutboundTourCard";
+import Testimonial2 from "../../allSmallComponents/Testimonial2";
+import { TfiLocationPin } from "react-icons/tfi";
+import LoadmoreBtn from "../../allSmallComponents/LoadmoreBtn";
 import OurCompanies from "../../main/footers/OurCompanies";
-import MultiCarousel from "../../MultiCarousel";
-// import OurSpecialTours from "./OurSpecialTours";
+import MultiCarousel from "../../allSmallComponents/MultiCarousel";
 
 const Home = ({ trips, outboundTours }) => {
   const [searchInput, setSearchInput] = useState();
@@ -19,10 +16,6 @@ const Home = ({ trips, outboundTours }) => {
     console.log(e.target.value);
     setSearchInput(e.target.value);
   };
-  // const featuredTripCard = trips.map((item) => {
-  //   const { id } = item;
-  //   return <TripCard trip={item} key={id} />;
-  // });
   const topInboundTours = trips.map((item) => {
     const { id } = item;
     return (
@@ -36,58 +29,62 @@ const Home = ({ trips, outboundTours }) => {
     return <TopOutboundCountriesCard tour={item} key={id} />;
   });
   return (
-    <div className="home">
-      <div className="home-main-banner">
-        <span className="home-main-banner-overlay"></span>
-      </div>
-      <div className="long-searchbar-outer-wrapper">
-        <p className="long-searchbar-label">Any Special Place in your mind ?</p>
-        <div className="long-searchbar-wrapper">
-          <input
-            type="text"
-            value={searchInput}
-            className="long-searchbar-input"
-            onChange={(e) => {
-              handleSearchInputChange(e);
-            }}
-          />
-          <TfiLocationPin className="search-icon" />
+    <>
+      <Header isNavMenu={true} />
+      <div className="home">
+        <div className="home-main-banner">
+          <span className="home-main-banner-overlay"></span>
         </div>
-      </div>
-      <div className="top-inbound-tours-wrapper">
-        <span className="top-inbound-tours-heading">Top Inbound Tours</span>
-        <MultiCarousel topInboundTours={topInboundTours} />
-      </div>
-      <div className="section-2">
-        {/* <div className="featured-trip-cards-wrapper">
+        <div className="long-searchbar-outer-wrapper">
+          <p className="long-searchbar-label">
+            Any Special Place in your mind ?
+          </p>
+          <div className="long-searchbar-wrapper">
+            <input
+              type="text"
+              value={searchInput}
+              className="long-searchbar-input"
+              onChange={(e) => {
+                handleSearchInputChange(e);
+              }}
+            />
+            <TfiLocationPin className="search-icon" />
+          </div>
+        </div>
+        <div className="top-inbound-tours-wrapper">
+          <span className="top-inbound-tours-heading">Top Inbound Tours</span>
+          <MultiCarousel topInboundTours={topInboundTours} />
+        </div>
+        <div className="section-2">
+          {/* <div className="featured-trip-cards-wrapper">
           <span className="featured-trip-cards-heading">Top Inbound Tours</span>
           <div className="featured-trip-cards">{featuredTripCard}</div>
           <LoadmoreBtn />
         </div> */}
 
-        {/* <div className="seasonal-offer-wrapper">
+          {/* <div className="seasonal-offer-wrapper">
           <span className="seasonal-offer-heading">Seasonal Offers</span>
           <Slider slides={slides} />
         </div> */}
-        <div className="top-outbound-tour-cards-wrapper">
-          <span className="top-outbound-tours-cards-heading">
-            Top Outbound Places For Visit
-          </span>
-          <div className="top-outbound-tour-cards">{outboundTourCard}</div>
-          <LoadmoreBtn className="loadmore-btn" />
+          <div className="top-outbound-tour-cards-wrapper">
+            <span className="top-outbound-tours-cards-heading">
+              Top Outbound Places For Visit
+            </span>
+            <div className="top-outbound-tour-cards">{outboundTourCard}</div>
+            <LoadmoreBtn className="loadmore-btn" />
+          </div>
         </div>
-      </div>
-      {/* <div className="special-tours-package">
+        {/* <div className="special-tours-package">
         <h1 className="special-tours-package-heading">
           Some of our Hidden Gems
         </h1>
         <OurSpecialTours />
       </div> */}
-      {/* <Testimonial /> */}
-      <Testimonial2 />
-      <OurCompanies />
-      <Footers />
-    </div>
+        {/* <Testimonial /> */}
+        <Testimonial2 />
+        <OurCompanies />
+      </div>
+    </>
   );
 };
 
@@ -101,7 +98,7 @@ Home.defaultProps = {
       title: "Langtang Trek",
       description:
         "Langtang valley is the most beautiful valley in Nepal. Most of the tourist are mesmerised by the beautiful scenic view of Langtang Mountain, Wildlife reserve. It is the place where you can see the snow capped mountains and beautiful glaciers. Langtang trek is a good option for short trek. Trekking, White water rafting, Climbing are some of the adventurous things which you can do while you are in Langtang tour.",
-      totalDays: 14,
+      days: 14,
       image:
         "https://sealinkstravel.com/wp-content/uploads/2020/02/him-compressor.jpg",
       rating: {

@@ -41,7 +41,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 5px 12px;
     font-weight: 600;
     height: 40%;
@@ -52,19 +52,19 @@
       color: #20558a;
       font-size: 1.1rem;
       font-weight: bold;
-      line-height: 19px;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 1; /* number of lines to show */
       -webkit-box-orient: vertical;
     }
-    .trip-card-total-days {
+    .total-days {
       font-size: 13.5px;
+      margin: 0;
     }
-    .trip-card-btn {
+    .trip-card-button {
       border: none;
-      margin: 5px 0;
+      // margin: 5px 0;
       cursor: pointer;
       padding: 4px 10px;
       border-radius: 5px;
@@ -72,15 +72,16 @@
       background-color: #20558a;
       color: white;
     }
-    .trip-card-btn:hover {
+    .trip-card-button:hover {
       background-color: #f79621;
     }
     .trip-card-price {
       font-style: italic;
       line-height: 8px;
-    }
-    .per-person {
-      font-size: 1.9vh;
+      // margin-top: 10px;
+      .per-person {
+        font-size: 1.9vh;
+      }
     }
   }
   h1 {
