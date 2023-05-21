@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopOutboundTourCard = ({ tour }) => {
+const OutboundPlacesCard = ({ tour }) => {
   const { imgUrl, placeName } = tour;
   return (
      <div className="top-outbound-tour-card" >
@@ -9,9 +9,9 @@ const TopOutboundTourCard = ({ tour }) => {
     </div>
   );
 };
-export default TopOutboundTourCard;
+export default OutboundPlacesCard;
 
-TopOutboundTourCard.defaultProps = {
+OutboundPlacesCard.defaultProps = {
   outboundTours: {
     id: 0,
     imgUrl:

@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const SelectButton = () => {
+// import { useState, useEffect, useRef } from "react";
+
+const SelectButton = ({ title }) => {
+  // const [adultSelectedValue, setAdultSelectedVaue] = useState();
+  // const [childrenSelectedValue, setChildrenSelectedVaue] = useState();
+  // const [infantSelectedValue, setInfantSelectedVaue] = useState();
   const arr = [];
   for (let i = 0; i < 100; i++) {
-    arr.push({ value: i + 1, displayValue: i + 1 });
+    title === "Adult"
+      ? arr.push({ value: i + 1, displayValue: i + 1 })
+      : arr.push({ value: i + 0, displayValue: i + 0 });
   }
   const optionData = arr.map((item, idx) => {
     return (
@@ -12,8 +19,34 @@ const SelectButton = () => {
       </option>
     );
   });
+
+  // const participatedAdult = useRef(1);
+  // const participatedChildren = useRef(0);
+  // const participatedInfant = useRef(0);
+
+  // useEffect(() => {
+  //   participatedAdult.current = adultSelectedValue;
+  //   participatedChildren.current = childrenSelectedValue;
+  //   participatedInfant.current = infantSelectedValue;
+  // });
+
+  // console.log(participatedAdult.current);
+  // const {
+  //   setAdultSelectedVaue,
+  //   setChildrenSelectedVaue,
+  //   setInfantSelectedVaue,
+  // } = useContext(ParticipantsContext);
   return (
-    <select name="cars" id="cars" className="select-button">
+    <select
+      className="select-button"
+      // onChange={(e) => {
+      //   title === "Adult"
+      //     ? setAdultSelectedVaue(e.target.value)
+      //     : title === "Children"
+      //     ? setChildrenSelectedVaue(e.target.value)
+      //     : setInfantSelectedVaue(e.target.value);
+      // }}
+    >
       {optionData}
     </select>
   );

@@ -21,7 +21,7 @@ const StarsRating = ({ rating, totalReviews }) => {
     <div className="star-rating-wrapper">
       {star && star}
       <span className="total-stars">{stars && stars}</span>
-      <span className="total-reviews">({totalReviews && totalReviews} reviews )</span>
+      {/* <span className="total-reviews">({totalReviews && totalReviews} reviews )</span> */}
     </div>
   );
 };

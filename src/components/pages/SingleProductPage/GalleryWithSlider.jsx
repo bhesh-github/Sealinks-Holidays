@@ -17,7 +17,7 @@ const GalleryWithSlider = ({ tourGallery }) => {
     setCurrentIndex(imgIdx);
   };
 
-  isSliderOverlay === true
+  isSliderOverlay
     ? (document.body.style.overflowY = "hidden")
     : (document.body.style.overflowY = "scroll");
 

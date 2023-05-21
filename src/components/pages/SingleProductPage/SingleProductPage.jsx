@@ -15,7 +15,6 @@ const SingleProductPage = ({
 }) => {
   return (
     <>
-      <Header />
       <div className="single-product-page">
         <GalleryWithSlider tourGallery={tourGallery} />
         <div className="tour-description-section container px-0">
