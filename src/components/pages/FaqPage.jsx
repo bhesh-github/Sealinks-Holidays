@@ -34,18 +34,16 @@ const FaqPage = ({ faqData }) => {
 					<div className="inner-section row ">
 						<div className="column-1 col-md-8">
 							<div className="question-wrapper ">
-								{
-									<div className="accordion-section">
-										<div className="faq-heading">Frequently Asked Question</div>
-										<div className="accordion-wrapper">
-											<ul className="accordion">{questionAndAnswer}</ul>
-										</div>
+								<div className="accordion-section">
+									<div className="faq-heading">Frequently Asked Question</div>
+									<div className="accordion-wrapper">
+										<ul className="accordion">{questionAndAnswer}</ul>
 									</div>
-								}
+								</div>
 							</div>
 						</div>
 						<div className="column-2 col-md-4">
-              <img className='side-image' src={sideImage}/>
+							<img className="side-image" src={sideImage} />
 						</div>
 					</div>
 				</div>

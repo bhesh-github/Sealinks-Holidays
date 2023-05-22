@@ -1,28 +1,27 @@
 import React from 'react';
-import { useState, createContext, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import SelectParticipantsActionBtn from './SelectParticipantsActionBtn/SelectParticipantsActionBtn';
+import ParticipantsModal from './participantsModal/ParticipantsModal';
 import SelectParticipantsBadge from './SelectParticipantsBadge';
-const ParticipantsContext = createContext();
 
-const SelectParticipants = () => {
+const userInput = {
+	fullName: null,
+	email: null,
+	contact: null,
+	address: null,
+	tourDate: null,
+	adult: null,
+	children: null,
+	infant: null,
+	totalAmount: null,
+};
+
+const SelectParticipants = ({ participantsButtons }) => {
 	const [startDate, setStartDate] = useState(new Date());
-	// ///////////////
-	const [adultSelectedValue, setAdultSelectedVaue] = useState();
-	const [childrenSelectedValue, setChildrenSelectedVaue] = useState();
-	const [infantSelectedValue, setInfantSelectedVaue] = useState();
-	//
-	const participatedAdult = useRef(1);
-	const participatedChildren = useRef(0);
-	const participatedInfant = useRef(0);
-	useEffect(() => {
-		console.log('render check');
-		participatedAdult.current = adultSelectedValue;
-		participatedChildren.current = childrenSelectedValue;
-		participatedInfant.current = infantSelectedValue;
-	});
-
-	//////////////
+	const [overlay, setOverlay] = useState(false);
+	const [forType, setFormType] = useState(null);
+	const [bookingConformationInputValue, setBookingConformationInputValue] =
+		useState(userInput);
 	let tourTotalAmount = 50000;
 
 	const dataAssumption = [
@@ -41,29 +40,56 @@ const SelectParticipants = () => {
 		<>
 			<div className="select-participants-wrapper ">
 				<div className="select-participants-heading">Tour Rate</div>
-				<div className="table-and-button-wrapper">
-					<ParticipantsContext.Provider value={setAdultSelectedVaue}>
-						<div className="select-participants-table ">
-							{dataAssumption.map((item) => (
-								<SelectParticipantsBadge
-									item={item}
-									startDate={startDate}
-									changeDate={changeDate}
-									key={item.id}
-								/>
-							))}
-						</div>
-					</ParticipantsContext.Provider>
-					<div className="select-participants-action-buttons">
-						<SelectParticipantsActionBtn
-							type="formConformation"
-							text="Book Now"
-							btnColor="#F79621"
+				<div className="table-and-button-wrapper row">
+					<div className="select-participants-table">
+						{dataAssumption.map((item) => (
+							<SelectParticipantsBadge
+								item={item}
+								startDate={startDate}
+								changeDate={changeDate}
+								key={item.id}
+							/>
+						))}
+					</div>
+					<div className="buttons-wrapper">
+						<button
+							className="participants-button book-now"
+							onClick={() => {
+								setOverlay(true);
+								setFormType('bookNow');
+							}}
+						>
+							Book Now
+						</button>
+						<button
+							className="participants-button more-info"
+							onClick={() => {
+								setOverlay(true);
+								setFormType('moreInfo');
+							}}
+						>
+							More Info
+						</button>
+					</div>
+					<div className="participants-modal">
+						<ParticipantsModal
+							type={forType}
+							overlay={overlay}
+							setOverlay={setOverlay}
+							setBookingConformationInputValue={
+								setBookingConformationInputValue
+							}
+							bookingConformationInputValue={bookingConformationInputValue}
 						/>
-						<SelectParticipantsActionBtn
-							text="More Info"
-							btnColor="#d4d4d4"
-							type="moreInformation"
+					</div>
+					<div className="participants-modal">
+						<ParticipantsModal
+							type={forType}
+							overlay={overlay}
+							setOverlay={setOverlay}
+							setBookingConformationInputValue={
+								setBookingConformationInputValue
+							}
 						/>
 					</div>
 				</div>
@@ -73,3 +99,7 @@ const SelectParticipants = () => {
 };
 
 export default SelectParticipants;
+
+SelectParticipants.defaultProps = {
+	participantsButtons: ['Book Now', 'More Info'],
+};

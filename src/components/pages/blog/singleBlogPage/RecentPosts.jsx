@@ -1,28 +1,24 @@
 import React from 'react';
-import BlogCard from './BlogCard';
-const Blog = ({ blogData }) => {
-	const faqbannerImg =
-		'https://sealinkstravel.com/wp-content/uploads/2020/02/banner.jpg';
-	return (
-		<div className="blog-page">
-			<img
-				src={faqbannerImg}
-				alt="main-banner"
-				className="blog-banner banner"
-			/>
-			<h1 className="heading">Our Blog</h1>
-			<div className="blog-cards-wrapper container">
-				{blogData.map((item) => (
-					<BlogCard blog={item} />
-				))}
+
+const RecentPosts = ({ blogData }) => {
+	const recentPostCard = blogData.slice(0, 5).map((item) => (
+		<div className="recent-post-card" key={item.id}>
+			<div className='card-image-wrapper'>
+				<img className="card-image" src={item.image} alt="post-card" />
 			</div>
+			<h6 className="recent-title">{item.title}</h6>
+		</div>
+	));
+	return (
+		<div className="recent-posts-wrapper">
+			<h5>Recent Posts</h5>
+			{recentPostCard}
 		</div>
 	);
 };
 
-export default Blog;
-
-Blog.defaultProps = {
+export default RecentPosts;
+RecentPosts.defaultProps = {
 	blogData: [
 		{
 			id: 0,

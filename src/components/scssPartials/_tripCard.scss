@@ -19,9 +19,6 @@
 		}
 	}
 	.trip-card-intro {
-    // background-color: rgb(0, 111, 13);
-    // border: 1px solid green;
-		// text-align: center;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -41,18 +38,11 @@
 		.category-days-stars-wrapper {
 			display: flex;
 			align-items: baseline;
-      justify-content: space-between;
-			// align-content:last baseline;
+			justify-content: space-between;
 			font-size: 1em;
 			font-weight: 600;
 			color: grey;
 			gap: 0.5em;
-			.trip-card-category {
-				// margin-right: 0.5em;
-			}
-			// .total-days {
-			// 	font-size: 0.7em;
-			// }
 			.stars {
 				display: flex;
 				align-items: baseline;
@@ -60,15 +50,14 @@
 			}
 		}
 		.price-booknow-btn-wrapper {
-      overflow: hidden;
-			// background-color: red;
+			overflow: hidden;
 			width: 100%;
 			display: flex;
-      align-items: center;
+			align-items: center;
 			gap: 2em;
 			.trip-card-button {
-        width: 80%;
-        height: 80%;
+				width: 80%;
+				height: 80%;
 				border: none;
 				cursor: pointer;
 				border-radius: 5px;
@@ -96,17 +85,10 @@
 		color: red;
 	}
 }
-// }
 .trip-card:hover {
 	.trip-card-img {
 		transform: scale(1.2);
 	}
-	// .heart-icon {
-	//   display: block;
-	// }
-	// .small-heart-icon {
-	//   display: none;
-	// }
 }
 
 // ---StarsRating Component---

@@ -15,6 +15,7 @@ import Blog from './components/pages/blog/Blog';
 import Contact from './components/pages/Contact';
 import SingleProductPage from './components/pages/SingleProductPage/SingleProductPage';
 import PageNotFound from './components/pages/PageNotFound';
+import SingleBlogPage from './components/pages/blog/singleBlogPage/SingleBlogPage';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="bookingInformation" element={<BookingInformation />} />
             <Route path="/visaInformation" element={<VisaInformation />} />
             <Route path="singleProductPage" element={<SingleProductPage />} />
+            <Route path="singleBlogPage" element={<SingleBlogPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
