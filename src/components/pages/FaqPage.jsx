@@ -14,12 +14,12 @@ const FaqPage = ({ faqData }) => {
 				<label htmlFor={`unique-${idx}`}>{item.question}</label>
 				<div className="content">
 					{item.answer}
-					<p className="discription-list">
+					<span className="discription-list">
 						<ul>
 							{item.list &&
 								item.list.map((item, idx) => <li key={idx}>{item}</li>)}
 						</ul>
-					</p>
+					</span>
 					<div className="note">{item.note && item.note}</div>
 				</div>
 			</li>
@@ -43,7 +43,7 @@ const FaqPage = ({ faqData }) => {
 							</div>
 						</div>
 						<div className="column-2 col-md-4">
-							<img className="side-image" src={sideImage} />
+							<img className="side-image"  src={sideImage} alt='col'/>
 						</div>
 					</div>
 				</div>

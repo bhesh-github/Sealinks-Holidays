@@ -5,10 +5,54 @@ import { SiTripadvisor } from 'react-icons/si';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import Accordion from '../../allSmallComponents/Accordion';
+import { AiOutlineCaretDown, AiOutlineCaretRight } from 'react-icons/ai';
+
+const sidebarContentObj = {
+	inboundContent: false,
+	inboundCaretLeft: 'none',
+	inboundCaretDown: '',
+	inboundDisplayContent: 'inbound-display-content',
+	outboundContent: false,
+	outboundCaretLeft: 'none',
+	outboundCaretDown: '',
+	outboundDisplayContent: 'outbound-display-content',
+};
 
 const Header = () => {
 	const [sidebarClass, setSidebarClass] = useState('none');
+	const [toggleSidebarContent, setToggleSidebarContent] =
+		useState(sidebarContentObj);
+	const toggleContent = (bound) => {
+		bound === 'inbound'
+			? toggleSidebarContent.inboundCaretLeft === 'none'
+				? setToggleSidebarContent((prev) => ({
+						...prev,
+						inboundContent: true,
+						inboundCaretLeft: '',
+						inboundCaretDown: 'none',
+						inboundDisplayContent: '',
+				  }))
+				: toggleSidebarContent.inboundCaretLeft === '' &&
+				  setToggleSidebarContent((prev) => ({
+						...prev,
+						inboundCaretLeft: 'none',
+						inboundCaretDown: '',
+						inboundDisplayContent: 'inbound-display-content',
+				  }))
+			: toggleSidebarContent.outboundCaretLeft === 'none'
+			? setToggleSidebarContent((prev) => ({
+					...prev,
+					outboundCaretLeft: '',
+					outboundCaretDown: 'none',
+					outboundDisplayContent: '',
+			  }))
+			: setToggleSidebarContent((prev) => ({
+					...prev,
+					outboundCaretLeft: 'none',
+					outboundCaretDown: '',
+					outboundDisplayContent: 'outbound-display-content',
+			  }));
+	};
 	sidebarClass === 'block'
 		? (document.body.style.overflowY = 'hidden')
 		: (document.body.style.overflowY = 'scroll');
@@ -53,20 +97,42 @@ const Header = () => {
 					>
 						Home
 					</NavLink>
-					<div className="side-bar-item inboundPackages">
-						<label htmlFor="inboundPackages" className="inboundPackages">
+					<div className="side-bar-item inbound-packages">
+						<label htmlFor="inbound-packages" className="inbound-packages">
 							<NavLink
 								to="./inboundPackages"
-								className="side-bar-item inboundPackages"
+								className="side-bar-item inbound-packages"
 								onClick={() => {
 									setSidebarClass('none');
 								}}
 							>
 								Inbound Packages
 							</NavLink>
+							<span
+								className="caret-icons "
+								onClick={() => {
+									toggleContent('inbound');
+								}}
+							>
+								<AiOutlineCaretDown
+									className="caret-down"
+									style={{
+										display: `${toggleSidebarContent.inboundCaretLeft}`,
+									}}
+								/>
+								<AiOutlineCaretRight
+									className="caret-right"
+									style={{
+										display: `${toggleSidebarContent.inboundCaretDown}`,
+									}}
+								/>
+							</span>
 						</label>
 						<label className="content-label">
-							<div className="content" id="inboundPackages">
+							<div
+								className={`content ${toggleSidebarContent.inboundDisplayContent}`}
+								id="inbound-packages"
+							>
 								<div className="content-list">
 									<NavLink
 										to="./inboundPackages"
@@ -125,20 +191,42 @@ const Header = () => {
 							</div>
 						</label>
 					</div>
-					<div className="side-bar-item inboundPackages">
-						<label htmlFor="inboundPackages" className="inboundPackages">
+					<div className="side-bar-item outbound-packages">
+						<label htmlFor="outbound-packages" className=" outbound-packages">
 							<NavLink
 								to="./outboundPackages"
-								className="side-bar-item inboundPackages"
+								className="side-bar-item  outbound-packages"
 								onClick={() => {
 									setSidebarClass('none');
 								}}
 							>
 								Outbound Packages
 							</NavLink>
+							<span
+								className="caret-icons "
+								onClick={() => {
+									toggleContent('outbound');
+								}}
+							>
+								<AiOutlineCaretDown
+									className="caret-down"
+									style={{
+										display: `${toggleSidebarContent.outboundCaretLeft}`,
+									}}
+								/>
+								<AiOutlineCaretRight
+									className="caret-right"
+									style={{
+										display: `${toggleSidebarContent.outboundCaretDown}`,
+									}}
+								/>
+							</span>
 						</label>
 						<label className="content-label">
-							<div className="content" id="inboundPackages">
+							<div
+								className={`content ${toggleSidebarContent.outboundDisplayContent}`}
+								id=" outbound-packages"
+							>
 								<div className="content-list">
 									<NavLink
 										to="./outboundPackages"
@@ -241,6 +329,24 @@ const Header = () => {
 						}}
 					>
 						Contact
+					</NavLink>
+					<NavLink
+						to="./singleProductPage"
+						className="side-bar-item"
+						onClick={() => {
+							setSidebarClass('none');
+						}}
+					>
+						Single Product Page
+					</NavLink>
+					<NavLink
+						to="./singleBlogPage"
+						className="side-bar-item"
+						onClick={() => {
+							setSidebarClass('none');
+						}}
+					>
+						Single Blog Page
 					</NavLink>
 				</div>
 			</div>

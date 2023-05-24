@@ -1,41 +1,67 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ParticipantsModal from './participantsModal/ParticipantsModal';
 import SelectParticipantsBadge from './SelectParticipantsBadge';
 
 const userInput = {
-	fullName: null,
-	email: null,
-	contact: null,
-	address: null,
-	tourDate: null,
+	fullName: '',
+	email: '',
+	contact: '',
+	emergency: '',
+	address: '',
+	tourDate: new Date(),
 	adult: null,
 	children: null,
 	infant: null,
 	totalAmount: null,
 };
 
-const SelectParticipants = ({ participantsButtons }) => {
-	const [startDate, setStartDate] = useState(new Date());
+const SelectParticipants = ({ individualAmountData }) => {
+	const calculatedIndividualAmountObj = {
+		adult: individualAmountData.adult,
+		children: null,
+		infant: null,
+	};
 	const [overlay, setOverlay] = useState(false);
 	const [forType, setFormType] = useState(null);
 	const [bookingConformationInputValue, setBookingConformationInputValue] =
 		useState(userInput);
-	let tourTotalAmount = 50000;
+	const [calculatedIndividualAmount, setCalculatedIndividualAmount] = useState(
+		calculatedIndividualAmountObj
+	);
+	const [tourTotalAmount, setTourTotalAmount] = useState(0);
+
+	const calculateAmountFunc = () => {
+		const result =
+			calculatedIndividualAmount.adult +
+			calculatedIndividualAmount.children +
+			calculatedIndividualAmount.infant;
+		setTourTotalAmount(result);
+	};
+	useMemo(() => {
+		return calculateAmountFunc();
+	}, [bookingConformationInputValue]);
+
+	useEffect(() => {
+		setBookingConformationInputValue((prev) => ({
+			...prev,
+			totalAmount: tourTotalAmount,
+		}));
+	}, [tourTotalAmount]);
 
 	const dataAssumption = [
 		{ id: 0, title: 'Tour Date', type: 'date', value: 'abc' },
 		{ id: 1, title: 'Adult', type: 'button', value: 'abc' },
 		{ id: 2, title: 'Children', type: 'button', value: 'abc' },
 		{ id: 3, title: 'Infant 0-3 yrs', type: 'button', value: 'abc' },
-		{ id: 4, title: 'Total Amount', type: 'text', value: tourTotalAmount },
+		{
+			id: 4,
+			title: 'Total Amount',
+			type: 'text',
+			value: tourTotalAmount.toString(),
+		},
 	];
-
-	const changeDate = (value) => {
-		setStartDate(value);
-	};
-
 	return (
 		<>
 			<div className="select-participants-wrapper ">
@@ -45,8 +71,13 @@ const SelectParticipants = ({ participantsButtons }) => {
 						{dataAssumption.map((item) => (
 							<SelectParticipantsBadge
 								item={item}
-								startDate={startDate}
-								changeDate={changeDate}
+								bookingConformationInputValue={bookingConformationInputValue}
+								setBookingConformationInputValue={
+									setBookingConformationInputValue
+								}
+								calculatedIndividualAmount={calculatedIndividualAmount}
+								setCalculatedIndividualAmount={setCalculatedIndividualAmount}
+								individualAmountData={individualAmountData}
 								key={item.id}
 							/>
 						))}
@@ -76,13 +107,13 @@ const SelectParticipants = ({ participantsButtons }) => {
 							type={forType}
 							overlay={overlay}
 							setOverlay={setOverlay}
+							bookingConformationInputValue={bookingConformationInputValue}
 							setBookingConformationInputValue={
 								setBookingConformationInputValue
 							}
-							bookingConformationInputValue={bookingConformationInputValue}
 						/>
 					</div>
-					<div className="participants-modal">
+					{/* <div className="participants-modal">
 						<ParticipantsModal
 							type={forType}
 							overlay={overlay}
@@ -91,7 +122,7 @@ const SelectParticipants = ({ participantsButtons }) => {
 								setBookingConformationInputValue
 							}
 						/>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>
@@ -101,5 +132,9 @@ const SelectParticipants = ({ participantsButtons }) => {
 export default SelectParticipants;
 
 SelectParticipants.defaultProps = {
-	participantsButtons: ['Book Now', 'More Info'],
+	individualAmountData: {
+		adult: 10000,
+		children: 5000,
+		infant: 3000,
+	},
 };

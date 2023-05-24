@@ -83,7 +83,6 @@
 	}
 }
 .header-navbar {
-
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -118,8 +117,7 @@
 		color: $primaryYellow;
 	}
 	.navigation-menu {
-	
-		margin-right: 2em;
+		margin-right: 6em;
 		display: flex;
 		list-style: none;
 		padding: 0 0;
@@ -191,7 +189,7 @@
 			//
 		}
 	}
-	@media screen and (max-width: 1311px) {
+	@media screen and (max-width: 1375px) {
 		.navigation-menu {
 			display: none;
 		}
@@ -212,10 +210,8 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
-
 }
 .side-bar {
-	// display: none;
 	right: -30%;
 	width: 25em;
 	transition: 1s;
@@ -251,13 +247,16 @@
 			font-size: 1em;
 			padding: 0.5em 0;
 			cursor: pointer;
+			.caret-icons {
+				cursor: pointer;
+				margin-left: 2em;
+			}
 			.content {
 				margin: 1em 0;
 				display: flex;
 				flex-direction: column;
 				gap: 1em;
 				padding-left: 2em;
-				display: none;
 				color: red;
 				.content-list {
 					margin: 1em 0;
@@ -266,24 +265,25 @@
 						text-decoration: none;
 					}
 				}
-				// .content-list:hover {
-				// 	color: $primaryGrey;
-				// }
 			}
-			// .content-label:hover {
-			// 	.inboundPackages {
-			// 		// color: purple;
-			// 	}
-			// }
-		}
-		.side-bar-item:hover {
-			// color: $primaryBlue;
-		}
-		.inboundPackages:hover {
-			.content {
-				display: block;
+			.inbound-display-content {
+				display: none;
+			}
+			.outbound-display-content {
+				display: none;
 			}
 		}
+
+		// .inbound-packages:hover {
+		// 	.content {
+		// 		display: block;
+		// 	}
+		// }
+		// .outbound-packages:hover{
+		// 	.content {
+		// 		display: block;
+		// 	}
+		// }
 	}
 }
 @media screen and (max-width: 1420px) {

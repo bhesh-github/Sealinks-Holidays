@@ -3,7 +3,7 @@ import React from 'react';
 const OurCompanies = ({ companies }) => {
 	const company = companies.map((item) => {
 		return item.companyLogo ? (
-			<div className="logo">
+			<div className="logo" key={item.id}>
 				<img
 					src={item.companyLogo}
 					alt="aribnb logo"
@@ -12,7 +12,7 @@ const OurCompanies = ({ companies }) => {
 				/>
 			</div>
 		) : (
-			<div className="logo">
+			<div className="logo" key={item.id}>
 				<span className="company-text">{item.companyName}</span>
 			</div>
 		);

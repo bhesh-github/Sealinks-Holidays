@@ -3,21 +3,42 @@ import { useMemo } from 'react';
 import DatePicker from 'react-datepicker';
 import SelectButton from './SelectButton';
 
-const SelectParticipantsBadge = ({ item, changeDate, startDate }) => {
+const SelectParticipantsBadge = ({
+	item,
+	setBookingConformationInputValue,
+	bookingConformationInputValue,
+	calculatedIndividualAmount,
+	setCalculatedIndividualAmount,
+	individualAmountData,
+}) => {
 	const { id, title, type, value } = item;
-
 	const conditions = {
 		date: (
 			<DatePicker
-				selected={startDate}
-				onChange={(date) => changeDate(date)}
+				selected={bookingConformationInputValue.tourDate}
+				onChange={(date) =>
+					setBookingConformationInputValue((prev) => ({
+						...prev,
+						tourDate: date,
+					}))
+				}
 				minDate={new Date()}
 				className="date-picker"
 			/>
 		),
-		button: <SelectButton title={title} />,
+		button: (
+			<SelectButton
+				id={id}
+				title={title}
+				setBookingConformationInputValue={setBookingConformationInputValue}
+				calculatedIndividualAmount={calculatedIndividualAmount}
+				setCalculatedIndividualAmount={setCalculatedIndividualAmount}
+				individualAmountData={individualAmountData}
+			/>
+		),
 		text: value || '',
 	};
+
 	const comp = useMemo(() => {
 		return conditions[type];
 	}, [item]);
@@ -28,7 +49,7 @@ const SelectParticipantsBadge = ({ item, changeDate, startDate }) => {
 			{type === 'text' ? (
 				<div
 					className="select-participants-body"
-					style={type === 'text' && { marginTop: '20px'}}
+					style={type === 'text' && { marginTop: '20px' }}
 				>
 					{comp}
 				</div>

@@ -3,6 +3,43 @@ import { ImPushpin } from 'react-icons/im';
 import ConformationNotice from './ConformationNotice';
 import BookingPolicy from './BookingPolicy';
 
+const conformationNoticeData = [
+	{
+		id: 0,
+		title: 'Voucher Conformation',
+		type: 'voucherConformation',
+		format: 'Mobile Voucher',
+		note: 'We will send a digital conformation voucher to your email address. Use your phone or Print your Voucher',
+	},
+	{
+		id: 1,
+		title: 'Booking Confirmation',
+		type: 'bookingConformation',
+		format: '24hrs Required for Confirmation',
+		note: 'Confirmation within 24hrs',
+	},
+];
+
+const bookingPolicyData = [
+	{
+		id: 0,
+		title: 'Cancellation Policy',
+		policy: [
+			'In case Tours or Tickets cancelled after Booking 100 % charges will be applicable.',
+			'In case Tours or Tickets cancelled after Booking 100 % charges will be applicable.',
+		],
+	},
+	{
+		id: 1,
+		title: 'Child Policy',
+		policy: [
+			'Children between 0 to 3 years of age are considered infant and are NOT allowed',
+			'Children above the age of 3 will be charged same as adult',
+			'Children between 0 to 3 years of age are considered infant and are NOT allowed',
+		],
+	},
+];
+
 function ParticipantsModal({
 	type,
 	overlay,
@@ -10,6 +47,9 @@ function ParticipantsModal({
 	setBookingConformationInputValue,
 	bookingConformationInputValue,
 }) {
+	const d = bookingConformationInputValue.tourDate;
+	const month = Number(d.getMonth()) + 1;
+	const displayDate = +month + '/' + d.getDate() + '/' + d.getFullYear();
 	const toggleOverlay = (value) => {
 		setOverlay(value);
 	};
@@ -18,42 +58,6 @@ function ParticipantsModal({
 		? (document.body.style.overflowY = 'hidden')
 		: (document.body.style.overflowY = 'scroll');
 
-	const conformationNoticeData = [
-		{
-			id: 0,
-			title: 'Voucher Conformation',
-			type: 'voucherConformation',
-			format: 'Mobile Voucher',
-			note: 'We will send a digital conformation voucher to your email address. Use your phone or Print your Voucher',
-		},
-		{
-			id: 1,
-			title: 'Booking Confirmation',
-			type: 'bookingConformation',
-			format: '24hrs Required for Confirmation',
-			note: 'Confirmation within 24hrs',
-		},
-	];
-
-	const bookingPolicyData = [
-		{
-			id: 0,
-			title: 'Cancellation Policy',
-			policy: [
-				'In case Tours or Tickets cancelled after Booking 100 % charges will be applicable.',
-				'In case Tours or Tickets cancelled after Booking 100 % charges will be applicable.',
-			],
-		},
-		{
-			id: 1,
-			title: 'Child Policy',
-			policy: [
-				'Children between 0 to 3 years of age are considered infant and are NOT allowed',
-				'Children above the age of 3 will be charged same as adult',
-				'Children between 0 to 3 years of age are considered infant and are NOT allowed',
-			],
-		},
-	];
 	return (
 		<>
 			{overlay && (
@@ -78,14 +82,14 @@ function ParticipantsModal({
 														<label htmlFor="fullName">Full Name :</label>
 														<input
 															type="text"
-															// value={bookingConformationInputValue}
+															value={bookingConformationInputValue.fullName}
 															name="fullName"
 															className="form-control"
 															onChange={(e) => {
-																setBookingConformationInputValue((prev) =>
-																	console.log(bookingConformationInputValue)
-																);
-																// {prev, e.target.value}
+																setBookingConformationInputValue((prev) => ({
+																	...prev,
+																	fullName: e.target.value,
+																}));
 															}}
 														/>
 													</div>
@@ -95,14 +99,15 @@ function ParticipantsModal({
 														<label htmlFor="email">Email :</label>
 														<input
 															type="text"
+															value={bookingConformationInputValue.email}
 															name="email"
 															className="form-control"
-															onChange={(e) => {
-																// setBookingConformationInputValue(
-																// 	e.target.value
-																// );
-																console.log(e.target.value);
-															}}
+															onChange={(e) =>
+																setBookingConformationInputValue((prev) => ({
+																	...prev,
+																	email: e.target.value,
+																}))
+															}
 														/>
 													</div>
 												</div>
@@ -111,13 +116,14 @@ function ParticipantsModal({
 														<label htmlFor="contactNumber">Contact No : </label>
 														<input
 															type="text"
+															value={bookingConformationInputValue.contact}
 															name="contactNumber"
 															className="form-control"
 															onChange={(e) => {
-																// setBookingConformationInputValue(
-																// 	e.target.value
-																// );
-																console.log(e.target.value);
+																setBookingConformationInputValue((prev) => ({
+																	...prev,
+																	contact: e.target.value,
+																}));
 															}}
 														/>
 													</div>
@@ -127,13 +133,14 @@ function ParticipantsModal({
 														<label htmlFor="emergencyNumber">Emergency :</label>
 														<input
 															type="text"
+															value={bookingConformationInputValue.emergency}
 															name="emergencyNumber"
 															className="form-control"
 															onChange={(e) => {
-																// setBookingConformationInputValue(
-																// 	e.target.value
-																// );
-																console.log(e.target.value);
+																setBookingConformationInputValue((prev) => ({
+																	...prev,
+																	emergency: e.target.value,
+																}));
 															}}
 														/>
 													</div>
@@ -143,25 +150,49 @@ function ParticipantsModal({
 														<label htmlFor="address">Address : </label>
 														<input
 															type="text"
+															value={bookingConformationInputValue.address}
 															name="address"
 															className="form-control"
 															onChange={(e) => {
-																// setBookingConformationInputValue(
-																// 	e.target.value
-																// );
-																console.log(e.target.value);
+																setBookingConformationInputValue((prev) => ({
+																	...prev,
+																	address: e.target.value,
+																}));
 															}}
 														/>
 													</div>
 												</div>
 												<div className="selected-view">
-													Tour Date : 05/20/2023
+													Tour Date :
+													<span className="display-value">
+														{' ' + displayDate}
+													</span>
 												</div>
-												<div className="selected-view">Adult : 5</div>
-												<div className="selected-view">Children : 2</div>
-												<div className="selected-view">Infant 0-3 yrs : 0</div>
+												<div className="selected-view">
+													Adult :{' '}
+													<span className="display-value">
+														{bookingConformationInputValue.adult === null
+															? 1
+															: bookingConformationInputValue.adult}
+													</span>
+												</div>
+												<div className="selected-view">
+													Children :{' '}
+													<span className="display-value">
+														{bookingConformationInputValue.children}
+													</span>
+												</div>
+												<div className="selected-view">
+													Infant 0-3 yrs :{' '}
+													<span className="display-value">
+														{bookingConformationInputValue.infant}
+													</span>
+												</div>
 												<h5 className="selected-view">
-													Total Amount : Nrs.50,000/-
+													Total Amount : Nrs.{' '}
+													<span className="display-value">
+														{bookingConformationInputValue.totalAmount}/-
+													</span>
 												</h5>
 											</div>
 										</form>
@@ -181,6 +212,7 @@ function ParticipantsModal({
 										onClick={() => {
 											toggleOverlay(false);
 										}}
+										a
 									>
 										Cancel
 									</button>
