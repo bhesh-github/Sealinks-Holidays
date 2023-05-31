@@ -1,6 +1,5 @@
 import React from "react";
 import TripCard from "../../TripCard";
-import MultiCarousel from "../../MultiCarousel";
 
 const TopInboundTours = () => {
   return (

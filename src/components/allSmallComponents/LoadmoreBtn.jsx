@@ -4,11 +4,11 @@ import { FiChevronsDown, FiChevronsUp } from "react-icons/fi";
 const LoadmoreBtn = ({ ifMoreContain }) => {
   const arrowIcon = ifMoreContain ? (
     <button className="loadmore-btn ">
-      Load more{<FiChevronsDown className="loadmore-icon" />}
+      Show More{<FiChevronsDown className="loadmore-icon" />}
     </button>
   ) : (
     <button className="loadmore-btn">
-      Load more{<FiChevronsUp className="loadmore-icon" />}
+      Show Less{<FiChevronsUp className="loadmore-icon" />}
     </button>
   );
   return arrowIcon;
