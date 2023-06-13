@@ -79,7 +79,14 @@ const Header = () => {
 					<Navbar setSidebarClass={setSidebarClass} />
 				</div>
 			</div>
-			{sidebarClass === 'block' && <div className="sidebar-overlay"></div>}
+			{sidebarClass === 'block' && (
+				<div
+					className="sidebar-overlay"
+					onClick={() => {
+						setSidebarClass('none');
+					}}
+				></div>
+			)}
 			<div className="side-bar" style={{ display: `${sidebarClass}` }}>
 				<AiOutlineCloseCircle
 					className="close-icon"

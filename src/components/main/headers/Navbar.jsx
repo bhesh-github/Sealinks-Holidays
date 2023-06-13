@@ -3,7 +3,6 @@ import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
-// import Slider from "./images/sealinks_logo.png";
 const Navbar = ({ setSidebarClass }) => {
 	const navigate = useNavigate();
 	return (

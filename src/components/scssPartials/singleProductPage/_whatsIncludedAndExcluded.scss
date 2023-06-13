@@ -1,0 +1,79 @@
+.whats-included-excluded-comp {
+    .whats-included {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 15px 5px rgb(227, 227, 227);
+        padding: 1em;
+        overflow-x: hidden;
+        padding: 3em 2em;
+        .heading {
+            color: $primaryBlue;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-bottom: 0.5em;
+        }
+        .title {
+            color: #000;
+            font-weight: 600;
+            .c-icon {
+                width: 25px;
+                height: 25px;
+                margin-right: 1em;
+                color: $primaryYellow;
+            }
+        }
+        .list {
+            list-style: none;
+            list-style-position: outside;
+            font-size: 15px;
+            margin: 0.5em 0;
+            margin-left: 2.5em;
+            .tick-icon {
+                color: $primaryYellow;
+                margin-right: 0.5em;
+                width: 20px;
+                height: 20px;
+                color: #50c878;
+            }
+        }
+    }
+    .whats-excluded {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 15px 5px rgb(227, 227, 227);
+        padding: 3em 2em;
+        overflow-x: hidden;
+        .heading {
+            color: $primaryBlue;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-bottom: 0.5em;
+        }
+        .list-wrapper {
+            .list {
+                display: flex;
+                .l-icon {
+                    min-width: 20px;
+                    min-height: 20px;
+                    margin-right: 1em;
+                    color: crimson;
+                    margin-top: 3px;
+                }
+                .brief {
+                    list-style-type: none;
+                    list-style-position: outside;
+                }
+            }
+        }
+    }
+}

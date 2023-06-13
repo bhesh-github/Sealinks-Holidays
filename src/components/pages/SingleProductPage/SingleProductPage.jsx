@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from '../../main/headers/Header';
 import StarsRating from '../../allSmallComponents/StarsRating';
 import GalleryWithSlider from './GalleryWithSlider';
 import SelectParticipants from './selectParticipants/SelectParticipants';
 import TourEvents from './TourEvents';
 import ReactPlayer from 'react-player';
 import Reviews from '../../allSmallComponents/Reviews';
+import WhatsIncludedAndExcluded from './WhatsIncludedAndExcluded';
+
 const SingleProductPage = ({
 	tourGallery,
 	selectParticipantsData,
@@ -52,6 +53,9 @@ const SingleProductPage = ({
 								<div className="accordion-container">
 									<ul className="accordion">{itineraryList}</ul>
 								</div>
+							</div>
+							<div>
+								<WhatsIncludedAndExcluded />
 							</div>
 						</div>
 						<div className="inner-section-second-column  col-md-4">

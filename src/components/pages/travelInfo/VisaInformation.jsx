@@ -9,7 +9,7 @@ const VisaInformation = ({ visaInfoData }) => {
       <div className="visa-info-page">
         <img
           src="https://sealinkstravel.com/wp-content/uploads/2020/02/banner.jpg"
-          alt="banner-image"
+          alt="banner-foto"
           className="banner-image"
         />
         <div className="info-section container">
